@@ -1,0 +1,102 @@
+body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px;
+  background-repeat: repeat;
+  background-color: black;
+  Background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("/Resources-linked-files/LC-35.jpg");
+  background-position: center top;
+  background-size: cover;
+}
+
+.image-grid {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-areas: 
+  "l r"
+  "l r"
+  "l r";
+  max-width: 800px;
+}
+.image-grid-left {
+  border-radius: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-grid-right {
+  border-radius: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-family: Roboto, sans-serif;
+  color: white;
+  font-size: 40px;
+}
+h2 {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #888;
+}
+h3 {
+  font-family: Roboto, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #ddd;
+  line-height: 22px;
+}
+
+b {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+.centered {
+  text-align: center;
+}
+
+.containerPort {
+  height: 100%;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-areas:
+    "h h h h h h h h"
+    "a a f f f f . ."
+    "a a . m m . . ."
+    "f f f f f f f f";
+    margin: 4%;
+}
+
+.containerAbout {
+  height: 100%;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-areas:
+    "h h h h h h h h"
+    "a a f f f f . ."
+    "a a . m m . . ."
+    "f f f f f f f f";
+    margin: 4%;
+}
+
+.about {
+  margin: 10%;
+}
+
+.masthead {
+grid-area: h;
+}
+
+
+
