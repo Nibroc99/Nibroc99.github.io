@@ -12,7 +12,7 @@ body {
   background-size: cover;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 700px) {
 .image-grid {
   grid-area: img;
   display: grid;
@@ -186,18 +186,6 @@ a.nostyle:hover {
     margin: 4%;
 }
 
-@media (min-width: 800px) {
-  .containerAbout {
-    height: 100%;
-    display: grid;
-    grid-gap: 3px;
-    grid-template-areas:
-      'h h h   h   h   h   h h'
-      '. . img img img img . .'
-      '. . .   m   m   .   . .'
-      'f f f   f   f   f   f f';
-}}
-
 .containerAbout {
   height: 100%;
   display: grid;
@@ -216,12 +204,30 @@ a.nostyle:hover {
 
 
 /* everything in the masthead */
-header {
+header.home {
+  display: grid;
+  grid-template-areas:
+  'text1  text1'
+  'text2  text2'
+  'button button2';
+  column-gap: 4px;
+  grid-area: h;
+  background-color: white;
+  background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  box-shadow: 0px 2px 35px #000;
+  border-radius: 40px;
+}
+@media (min-width: 800px){
+header.aboutme {
 display: grid;
 grid-template-areas:
-'text1 text1'
-'text2 text2'
-'button button';
+'text1 text1 text1'
+'text2 text2 text2'
+'button button2 button3';
 grid-area: h;
 background-color: white;
 background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
@@ -231,7 +237,26 @@ background-size: cover;
 height: 400px;
 box-shadow: 0px 2px 35px #000;
 border-radius: 40px;
-}
+}}
+@media (max-width: 800px){
+header.aboutme {
+  display: grid;
+  grid-template-areas:
+  'text1'
+  'text2'
+  'button'
+  'button2'
+  'button3';
+  grid-area: h;
+  background-color: white;
+  background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  box-shadow: 0px 2px 35px #000;
+  border-radius: 40px;
+  }}
 
 .masthead-button-2 {
   background-color: white;
@@ -273,6 +298,18 @@ border-radius: 40px;
   margin-right: auto;
   grid-area: button;
 }
+.masthead-buttons2 {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: button2;
+}
+.masthead-buttons3 {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: button3;
+}
 .headtext1 {
   padding-top: 20px;
   text-align: center;
@@ -282,5 +319,19 @@ border-radius: 40px;
 .headtext2 {
 text-align: center;
   grid-area: text2;
+}
+
+.homeicon {
+  display: inline;
+  position: relative;
+  margin-left: -10px;
+  top: 6px;
+}
+.homeicon:hover {
+  display: inline;
+  position: relative;
+  margin-left: -10px;
+  top: 6px;
+  color: white;
 }
 /* end masthead stuff */
