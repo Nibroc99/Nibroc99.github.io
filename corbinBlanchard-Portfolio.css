@@ -1,40 +1,125 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   box-sizing: border-box;
-  height: 100%;
-  padding: 10px;
+  padding: 0px;
   background-repeat: repeat;
-  background-color: black;
-  Background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("/Resources-linked-files/LC-35.jpg");
+  background-color: #222;
   background-position: center top;
   background-size: cover;
 }
+
+@media (min-width: 500px) {
+.image-grid {
+  grid-area: img;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+  max-width: 1800px;
+}}
 
 .image-grid {
   display: grid;
   margin-left: auto;
   margin-right: auto;
   row-gap: 10px;
-  column-gap: 10px;
-  grid-template-areas: 
-  "l r"
-  "l r"
-  "l r";
-  max-width: 800px;
 }
-.image-grid-left {
+
+/* -----Image code----- */
+
+.myImg {
   border-radius: 10px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  background-color: black;
+  transition: 0.3s;
 }
 
-.image-grid-right {
+.myImg:hover {
   border-radius: 10px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+  transition: .3s;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  background: black;
+  box-shadow: 0px 4px 16px #000;
+  width: 80%;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 800px){
+  .modal-content {
+      width: 100%;
+  }
+}
+/* End image code */
+
+/* text styles */
 h1 {
   font-family: Roboto, sans-serif;
   color: white;
@@ -43,8 +128,8 @@ h1 {
 h2 {
   font-family: Roboto, sans-serif;
   font-size: 20px;
-  font-weight: 400;
-  color: #888;
+  font-weight: 300;
+  color: #aaa;
 }
 h3 {
   font-family: Roboto, sans-serif;
@@ -62,10 +147,33 @@ a {
   color: inherit;
 }
 
+a.nostyle {
+  text-decoration: none;
+  transition: .3s;
+}
+a.nostyle:hover {
+  color: #03b0f5;
+}
+/* end text styles */
+
+
+/* Font style classes/ids */
 .centered {
   text-align: center;
 }
 
+#blue {
+  color: blue;
+}
+
+#lesswidth {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* end font style classes/ids */
+
+/* Containers */
 .containerPort {
   height: 100%;
   display: grid;
@@ -78,25 +186,101 @@ a {
     margin: 4%;
 }
 
+@media (min-width: 800px) {
+  .containerAbout {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-areas:
+      'h h h   h   h   h   h h'
+      '. . img img img img . .'
+      '. . .   m   m   .   . .'
+      'f f f   f   f   f   f f';
+}}
+
 .containerAbout {
   height: 100%;
   display: grid;
   grid-gap: 3px;
   grid-template-areas:
-    "h h h h h h h h"
-    "a a f f f f . ."
-    "a a . m m . . ."
-    "f f f f f f f f";
-    margin: 4%;
+    'h'
+    'about';
 }
+/* End containers */
+
 
 .about {
   margin: 10%;
+  grid-area: about
 }
 
-.masthead {
+
+/* everything in the masthead */
+header {
+display: grid;
+grid-template-areas:
+'text1 text1'
+'text2 text2'
+'button button';
 grid-area: h;
+background-color: white;
+background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
+background-position: top left;
+background-repeat: no-repeat;
+background-size: cover;
+height: 400px;
+box-shadow: 0px 2px 35px #000;
+border-radius: 40px;
 }
 
-
-
+.masthead-button-2 {
+  background-color: white;
+  border-radius: 32px;
+  color: #008fc6;
+  font-family: roboto;
+  font-size: 14px;
+  font-style: no-underline;
+  font-weight: 700;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  box-shadow: 0px 2px 12px #000;
+  transition: box-shadow .3s ease,  background-color .3s ease, color .3s ease, margin-top .3s ease, margin-bottom .3s ease;
+}
+.masthead-button-2:hover {
+  box-shadow: 0px 5px 55px #000;
+  background-color: #03b0f5;
+  color: white;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+.masthead-button-2:active {
+  box-shadow: 0px 5px 25px #fff;
+  background-color: #03b0f5;
+  color: white;
+  margin-top: -3px;
+  margin-bottom: 3px;
+  transition: .15s;
+}
+.masthead-buttons {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: button;
+}
+.headtext1 {
+  padding-top: 20px;
+  text-align: center;
+  font-weight: 900;
+  grid-area: text1;
+}
+.headtext2 {
+text-align: center;
+  grid-area: text2;
+}
+/* end masthead stuff */
