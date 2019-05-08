@@ -1,4 +1,15 @@
+/* Obligatory note:  This code is sectioned off into the following sections:
+1. HTML
+2. Body
+3. Image Code
+  3.1 Modal Code
+4. Text Styles
+5. Font classes/IDs
+6. Containers
+7. Masthead Stuff, inclusing buttons in masthead  */
+
 html {
+  /* Make the text more legible on older devices */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -12,25 +23,54 @@ body {
   background-size: cover;
 }
 
-@media (min-width: 700px) {
-.image-grid {
-  grid-area: img;
+/* -----Image code----- */
+@media (min-width: 800px){
+.pf-grid {
+  /* this is the main landing page grid */
   display: grid;
+  width: 80%;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  grid-template-columns: 50% 50%;
-  grid-gap: 10px;
-  max-width: 1800px;
+  grid-area: imggrid;
+}}
+
+@media (max-width: 800px){
+.pf-grid {
+  /* this is the main landing page grid */
+  display: grid;
+  width: 80%;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-columns: 1fr;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: imggrid;
 }}
 
 .image-grid {
   display: grid;
+  width: 80%;
+  row-gap: 10px;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  row-gap: 10px;
 }
 
-/* -----Image code----- */
+@media (min-width: 700px) {
+  .image-grid {
+    grid-area: img;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+    text-align: center;
+  }}
 
 .myImg {
   border-radius: 10px;
@@ -46,6 +86,12 @@ body {
   width: 100%;
   opacity: 0.7;
   cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
 }
 
 /* The Modal (background) */
@@ -139,6 +185,8 @@ h3 {
   line-height: 22px;
 }
 
+
+
 b {
   font-weight: 700;
 }
@@ -158,6 +206,14 @@ a.nostyle:hover {
 
 
 /* Font style classes/ids */
+.top-left {
+  position: absolute;
+  background-color: #444444cc;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 35px;
+}
+
 .centered {
   text-align: center;
 }
@@ -171,6 +227,12 @@ a.nostyle:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
+#hometitle {
+  grid-area: ht;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
 /* end font style classes/ids */
 
 /* Containers */
@@ -179,10 +241,9 @@ a.nostyle:hover {
   display: grid;
   grid-gap: 3px;
   grid-template-areas:
-    "h h h h h h h h"
-    "a a f f f f . ."
-    "a a . m m . . ."
-    "f f f f f f f f";
+    'hh'
+    'ht'
+    'imggrid';
     margin: 4%;
 }
 
@@ -198,45 +259,73 @@ a.nostyle:hover {
 
 
 .about {
-  margin: 10%;
   grid-area: about
 }
 
-
 /* everything in the masthead */
+@media (max-width: 800px){
+header.home {
+    display: grid;
+    grid-template-areas:
+    'text1'
+    'text2'
+    'button'
+    'button2';
+    grid-area: hh;
+    background-color: white;
+    background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 2px 35px #000;
+    border-radius: 40px;
+    transition: all .3s ease;
+    }}
+
+@media (min-width: 800px){
 header.home {
   display: grid;
   grid-template-areas:
-  'text1  text1'
-  'text2  text2'
+  'text1 text1'
+  'text2 text2'
   'button button2';
-  column-gap: 4px;
-  grid-area: h;
+  grid-area: hh;
   background-color: white;
   background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
   box-shadow: 0px 2px 35px #000;
   border-radius: 40px;
-}
+  width: 80%;
+  min-width: 800px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all .3s ease;
+}}
+
 @media (min-width: 800px){
 header.aboutme {
 display: grid;
 grid-template-areas:
-'text1 text1 text1'
-'text2 text2 text2'
-'button button2 button3';
+'text1 text1'
+'text2 text2'
+'button button2';
 grid-area: h;
 background-color: white;
 background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
 background-position: top left;
 background-repeat: no-repeat;
 background-size: cover;
-height: 400px;
 box-shadow: 0px 2px 35px #000;
 border-radius: 40px;
+width: 80%;
+min-width: 800px;
+max-width: 1400px;
+margin-left: auto;
+margin-right: auto;
+transition: all .3s ease;
 }}
 @media (max-width: 800px){
 header.aboutme {
@@ -245,17 +334,17 @@ header.aboutme {
   'text1'
   'text2'
   'button'
-  'button2'
-  'button3';
+  'button2';
   grid-area: h;
+  height: 400px;
   background-color: white;
   background-image: url(3ee175c4-dbec-4e48-b448-9038a75b4271_rwc_626x124x1936x1012x1936.jpg);
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
   box-shadow: 0px 2px 35px #000;
   border-radius: 40px;
+  transition: all .3s ease;
   }}
 
 .masthead-button-2 {
@@ -270,20 +359,36 @@ header.aboutme {
   line-height: 40px;
   padding-left: 80px;
   padding-right: 80px;
+  margin-bottom: 20px;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
   display: inline-block;
   box-shadow: 0px 2px 12px #000;
-  transition: box-shadow .3s ease,  background-color .3s ease, color .3s ease, margin-top .3s ease, margin-bottom .3s ease;
+  transition: box-shadow .3s ease,  background-color .3s ease, color .3s ease, margin-top .3s ease, margin-bottom .3s ease, fill .3s ease;
+  fill: #008fc6;
 }
+
+@media (min-width: 800px){
 .masthead-button-2:hover {
   box-shadow: 0px 5px 55px #000;
   background-color: #03b0f5;
   color: white;
   margin-top: -5px;
   margin-bottom: 5px;
-}
+  fill: white;
+}}
+
+@media (max-width: 800px) {
+.masthead-button-2:hover {
+  box-shadow: 0px 5px 55px #000;
+  background-color: #03b0f5;
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  fill: white;
+}}
+
 .masthead-button-2:active {
   box-shadow: 0px 5px 25px #fff;
   background-color: #03b0f5;
@@ -292,12 +397,22 @@ header.aboutme {
   margin-bottom: 3px;
   transition: .15s;
 }
+
+@media (max-width: 800px){
+.masthead-buttons {
+  padding-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: button;
+}}
+@media (min-width: 800px){
 .masthead-buttons {
   padding-top: 20px;
   margin-left: auto;
   margin-right: auto;
   grid-area: button;
-}
+}}
+
 .masthead-buttons2 {
   padding-top: 20px;
   margin-left: auto;
@@ -317,21 +432,16 @@ header.aboutme {
   grid-area: text1;
 }
 .headtext2 {
-text-align: center;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 75px;
   grid-area: text2;
 }
 
 .homeicon {
   display: inline;
   position: relative;
-  margin-left: -10px;
+  margin-left: -12px;
   top: 6px;
-}
-.homeicon:hover {
-  display: inline;
-  position: relative;
-  margin-left: -10px;
-  top: 6px;
-  color: white;
 }
 /* end masthead stuff */
